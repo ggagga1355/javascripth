@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            border-bottom: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+    
+
+
+</head>
+<body>
+    <p>단: <input id="dan">
+        <input type="button" id="gugu" value="계산시작" >
+        <input type="button" id="c_disp" value="숨기기">
+    
+    </p>
+    <div id="disp">
+        여기에 구구단
+    </div>
+    <script>
+        let calc_btn = document.querySelector("#gugu");//계산시작
+        let c_disp = document.querySelector("#c_disp");//숨기기
+        let gugudan = () => {
+            //input에 입력한 데이터의 값을 받아야한다.
+            let dan = Number(document.querySelector("#dan").value);
+            if(dan == ""){
+                alert("값을 입력하시오");
+                return;
+            } else if(dan < 2 || dan > 9){
+                alert("2~9 사이만 입력하시오");
+                return;
+            }
+            let str = "";
+            for(let i = 1; i < 10; i++){
+                str += `${dan}X${i}=${dan*i} <br>`
+            }
+            let disp = document.querySelector("#disp")
+            disp.innerHTML = str;
+        }
+        calc_btn.addEventListener("click",gugudan);
+
+        let b_show = true;
+        let show = () => {
+            b_show = !b_show;
+            c_disp.value = b_show ? "숨기기" : "보이기";
+            let disp = document.querySelector("#disp");
+            disp.style.display = b_show ? 'block' : 'none';
+        }
+        c_disp.addEventListener("click",show);
+
+
+    </script>
+
+
+
+
+    
+</body>
+</html>
