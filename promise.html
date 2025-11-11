@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+    <!-- 결과를 보여준다는 약속함
+         -->
+
+</head>
+<body>
+    <script>
+        const myPromise = new Promise((resolve, reject) => {
+
+            setTimeout(() => {
+                resolve('작업 성공!');
+            }, 1000);
+        });
+        
+        myPromise.then((result) => {
+            console.log(result); // '작업 성공!'
+        }).catch((error) => {
+            console.error(error);
+        }); 
+
+        //약속기능
+        function boilRamyun(){
+            return new Promise(resolve =>{
+                console.log("라면 끓이는 중");
+                setTimeout(()=> resolve("라면완성!"),2000);
+            });
+        }
+
+        //실행
+        console.log("요리시작");
+        boilRamyun().then(result => {
+            console.log(result);
+        })
+
+
+        function success(){
+            return new Promise(resolve =>{
+                console.log("실행 중");
+                setTimeout(() => resolve("실행완료!"),2000);
+            });
+        }
+
+        //실행
+        success().then(result =>{
+            console.log(result);
+        })
+    </script>
+
+
+    
+</body>
+</html>
