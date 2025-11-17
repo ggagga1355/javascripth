@@ -46,18 +46,19 @@
             } //입력값 범위 지정
             
             let rt = '';
+            let count = 0;
             if(data > random){
-                rt += `${data} 보다 작습니다. <br>`
+                rt += `${data} 보다 작습니다.`;
             } else if(data < random){
-                rt += `${data} 보다 큽니다. <br>`
+                rt += `${data} 보다 큽니다.`
             } else {
-                rt += `${random} 축하합니다. 정답입니다!`
+                rt += `${random} 정답입니다! <br>`
             }
             let disp = document.querySelector("#disp")
-            disp.innerHTML = rt;
+            disp.innerHTML = rt;  
         };
         let reset = () => {
-            random = Math.floor(Math.random() * (50-1+1))+1;
+            random = Math.floor(Math.random() * 50)+1;
             disp.innerHTML = "리셋됐습니다."
             document.querySelector("#data").value = ""
             console.log(random);
